@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    protected int isButtonClicked = 0;
+    protected boolean isButtonClicked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +34,17 @@ public class MainActivity extends AppCompatActivity {
         Button btn = (Button) findViewById(R.id.eat_cookie);
 
 
-        if (isButtonClicked == 0) {
+        if (isButtonClicked == false) { //hungry
             imageView.setImageResource(R.drawable.after_cookie);
-            textView.setText("I am so full");
-            btn.setText("Get me another one");
-            isButtonClicked = 1;
+            textView.setText(R.string.status_text_full);
+            btn.setText(R.string.button_label_full);
+            isButtonClicked = true;
         }
-        else {
+        else { // full
             imageView.setImageResource(R.drawable.before_cookie);
-            textView.setText("I am so hungry .. ");
-            btn.setText("Eat Cookie");
-            isButtonClicked = 0;
+            textView.setText(R.string.status_text_hungry);
+            btn.setText(R.string.button_label_hungry);
+            isButtonClicked = false;
         }
     }
 }
